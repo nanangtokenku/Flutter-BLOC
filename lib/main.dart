@@ -51,6 +51,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<Widget> _widgetOptions = <Widget>[
+    Home(),
+    Home(),
+    Home(),
+  ];
+  int _currentSelected = 0;
+  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+
+  void _onItemTapped(int index) {
+    index == 3
+        ? _drawerKey.currentState.openDrawer()
+        : setState(() {
+            _currentSelected = index;
+          });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -59,6 +75,36 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(body: Home());
+    return Scaffold(
+      key: _drawerKey,
+      body: _widgetOptions.elementAt(_currentSelected),
+      drawer: Drawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: _onItemTapped,
+        currentIndex: _currentSelected,
+        showUnselectedLabels: true,
+        unselectedItemColor: Colors.grey[800],
+        selectedItemColor: Color.fromRGBO(10, 135, 255, 1),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            title: Text('Page 1'),
+            icon: Icon(Icons.access_alarm),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Page 2'),
+            icon: Icon(Icons.accessible),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Page 3'),
+            icon: Icon(Icons.adb),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Drawer'),
+            icon: Icon(Icons.more_vert),
+          )
+        ],
+      ),
+    );
   }
 }
