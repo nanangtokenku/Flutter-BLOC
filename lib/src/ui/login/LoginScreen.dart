@@ -1,5 +1,5 @@
 import 'package:aztira/main.dart';
-import 'package:aztira/src/ui/home.dart';
+import 'package:aztira/src/blocs/todoBloc.dart';
 import 'package:aztira/src/ui/login/validation_mixin.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> with ValidationMixin {
-  final formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
