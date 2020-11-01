@@ -1,6 +1,8 @@
 import 'package:aztira/src/ui/home.dart';
 import 'package:flutter/material.dart';
 
+import 'about/about_us.dart';
+
 class SideDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,8 @@ class SideDrawer extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute<bool>(builder: (context) => Home()),
+                      MaterialPageRoute<bool>(
+                          builder: (context) => AboutUsScreen()),
                     );
                   })
             ],
