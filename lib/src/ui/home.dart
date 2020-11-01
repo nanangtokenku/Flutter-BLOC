@@ -45,8 +45,10 @@ class _HomeState extends State<Home> {
     return ListView.builder(
       itemCount: snapshot.data.length,
       itemBuilder: (BuildContext context, int index) {
-        return ListTile(
+        return CheckboxListTile(
+          value: snapshot.data[index].done == 'true' ? true : false,
           title: Text(snapshot.data[index].name),
+          onChanged: (bool isChecked) {},
         );
       },
     );
