@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'about/about_us.dart';
+import 'login/LoginScreen.dart';
 
 class SideDrawer extends StatelessWidget {
   @override
@@ -47,10 +48,15 @@ class SideDrawer extends StatelessWidget {
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<bool>(builder: (context) => LoginScreen()),
+              );
+            },
             leading: Icon(Icons.calendar_today),
             title: Text(
-              "Next 7 Days",
+              "Logout",
               key: ValueKey(SideDrawerKeys.NEXT_7_DAYS),
             ),
           ),
