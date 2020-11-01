@@ -1,4 +1,3 @@
-import 'package:aztira/src/ui/home.dart';
 import 'package:flutter/material.dart';
 
 import 'about/about_us.dart';

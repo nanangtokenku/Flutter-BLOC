@@ -48,6 +48,8 @@ class _HomeState extends State<Home> {
         return CheckboxListTile(
           value: snapshot.data[index].done == 'true' ? true : false,
           title: Text(snapshot.data[index].name),
+          subtitle: Text(
+              snapshot.data[index].id != null ? snapshot.data[index].id : ''),
           onChanged: (bool isChecked) {},
         );
       },
