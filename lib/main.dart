@@ -1,4 +1,5 @@
 import 'package:aztira/src/ui/home.dart';
+import 'package:aztira/src/ui/side_drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -78,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: _drawerKey,
       body: _widgetOptions.elementAt(_currentSelected),
-      drawer: Drawer(),
+      drawer: SideDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
