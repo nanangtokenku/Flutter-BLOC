@@ -29,14 +29,16 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Produk'), //bottom
+        title: Text('Katalog'), //bottom
         bottom: new TabBar(
           controller: controller,
           tabs: <Widget>[
             new Tab(
+              text: "Produk",
               icon: new Icon(Icons.add_photo_alternate_outlined),
             ),
             new Tab(
+              text: "Kategori",
               icon: new Icon(Icons.list),
             ),
           ],

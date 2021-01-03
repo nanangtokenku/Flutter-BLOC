@@ -55,8 +55,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Produk(),
     Home(),
+    Produk(),
   ];
   int _currentSelected = 0;
   GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
