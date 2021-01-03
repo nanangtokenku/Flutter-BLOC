@@ -8,11 +8,11 @@ class TodoApiProvider {
   List<Todo> todo;
 
   //final _url = "https://uncok.jogjaide.web.id/cadmin/native/getAll.php";
-  final _url = "https://uncok.jogjaide.web.id/cadmin/api/todo/all";
+  final _url = "https://api.jogjaide.web.id/api/todo/all";
   Future<List<Todo>> fetchTodoList() async {
     print("masuk fungsi");
     final response = await client.get(_url, headers: {
-      'x-api-key': '4DE868BD51F2BE7C724A9E9A3415C4BA',
+      'x-api-key': 'B1740A5A0C55839D3EC863C70D880E89',
     });
     if (response.statusCode == 200) {
       var jsondata = json.decode(response.body);

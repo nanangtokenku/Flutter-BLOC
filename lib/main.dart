@@ -1,4 +1,5 @@
 import 'package:aztira/src/ui/home.dart';
+import 'package:aztira/src/ui/produk/produk.dart';
 import 'package:aztira/src/ui/side_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Home(),
+    Produk(),
     Home(),
   ];
   int _currentSelected = 0;
@@ -89,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Color.fromRGBO(10, 135, 255, 1),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            title: Text('Page 1'),
-            icon: Icon(Icons.access_alarm),
+            title: Text('Home'),
+            icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
             title: Text('Page 2'),
