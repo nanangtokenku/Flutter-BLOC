@@ -1,3 +1,5 @@
+import 'package:aztira/src/ui/produk/produk1.dart';
+import 'package:aztira/src/ui/produk/produk2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,7 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    controller = new TabController(vsync: this, length: 4);
+    controller = new TabController(vsync: this, length: 2);
     //tambahkan SingleTickerProviderStateMikin pada class _HomeState
     super.initState();
   }
@@ -32,27 +34,22 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
           controller: controller,
           tabs: <Widget>[
             new Tab(
-              icon: new Icon(Icons.email),
+              icon: new Icon(Icons.add_photo_alternate_outlined),
             ),
             new Tab(
-              icon: new Icon(Icons.queue_music),
-            ),
-            new Tab(
-              icon: new Icon(Icons.shopping_cart),
-            ),
-            new Tab(
-              icon: new Icon(Icons.phone_android),
+              icon: new Icon(Icons.list),
             ),
           ],
         ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Katalog'),
-          onPressed: () {
-            // Navigate to second route when tapped.
-          },
-        ),
+      body: new TabBarView(
+        //controller untuk tab bar
+        controller: controller,
+        children: <Widget>[
+          //kemudian panggil halaman sesuai tab yang sudah dibuat
+          new Produk1(),
+          new Produk2()
+        ],
       ),
     );
   }
