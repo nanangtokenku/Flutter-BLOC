@@ -7,7 +7,6 @@ class TodoApiProvider {
   Client client = Client();
   List<Todo> todo;
 
-  //final _url = "https://uncok.jogjaide.web.id/cadmin/native/getAll.php";
   final _url = "https://api.jogjaide.web.id/api/todo/all";
   Future<List<Todo>> fetchTodoList() async {
     print("masuk fungsi");
