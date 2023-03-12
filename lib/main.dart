@@ -96,19 +96,19 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Color.fromRGBO(10, 135, 255, 1),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            title: Text('Beranda'),
+            label: 'Beranda',
             icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            title: Text('Pesanan'),
+            label: 'Pesanan',
             icon: Icon(Icons.calendar_today_sharp),
           ),
           BottomNavigationBarItem(
-            title: Text('Katalog'),
+            label: 'Katalog',
             icon: Icon(Icons.list),
           ),
           BottomNavigationBarItem(
-            title: Text('Seting'),
+            label: 'Seting',
             icon: Icon(Icons.more_vert),
           )
         ],
