@@ -8,11 +8,11 @@ class TodoApiProvider {
   Client client = Client();
   List<Todo> todo;
 
-  final _url = "https://api.jogjaide.web.id/api/todo/all";
+  final _url = urlTodo;
 
   Future<List<Todo>> fetchTodoList() async {
     final response = await client.get(_url, headers: {
-      'x-api-key': x_api_key,
+      'x-api-key': xApiKey,
     });
     if (response.statusCode == 200) {
       var jsondata = json.decode(response.body);
