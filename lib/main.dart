@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.home),
           ),
           BottomNavigationBarItem(
-            label: 'Pesanan',
+            label: 'Nodes',
             icon: Icon(Icons.calendar_today_sharp),
           ),
           BottomNavigationBarItem(
