@@ -29,7 +29,7 @@ class SideDrawer extends StatelessWidget {
                   })
             ],
             currentAccountPicture: CircleAvatar(
-              backgroundColor: Theme.of(context).accentColor,
+              backgroundColor: Theme.of(context).secondaryHeaderColor,
               backgroundImage: AssetImage("assets/profile_pic.jpg"),
             ),
           ),

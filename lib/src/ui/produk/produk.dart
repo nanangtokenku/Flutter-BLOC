@@ -1,6 +1,5 @@
 import 'package:aztira/src/ui/produk/produk1.dart';
 import 'package:aztira/src/ui/produk/produk2.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Produk extends StatefulWidget {

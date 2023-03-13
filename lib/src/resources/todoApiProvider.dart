@@ -17,7 +17,7 @@ class TodoApiProvider {
     if (response.statusCode == 200) {
       var jsondata = json.decode(response.body);
 
-      print(jsondata);
+      //print(jsondata);
 
       return (jsondata['data']['todo'] as List)
           .map((data) => new Todo.fromJson(data))
