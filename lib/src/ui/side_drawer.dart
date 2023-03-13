@@ -12,7 +12,7 @@ class SideDrawer extends StatelessWidget {
         children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: Text("Nanang Rustianto"),
-            accountEmail: Text("nanang.direktur@gmail.com"),
+            accountEmail: Text("founder@jogjaide.web.id"),
             otherAccountsPictures: <Widget>[
               IconButton(
                   icon: Icon(

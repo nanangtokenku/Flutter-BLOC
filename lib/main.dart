@@ -9,6 +9,8 @@ import 'package:aztira/src/ui/produk/produk.dart';
 import 'package:aztira/src/ui/side_drawer.dart';
 import 'package:flutter/material.dart';
 
+import 'src/ui/node.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -61,7 +63,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Home(),
+    Nodepage(),
     Produk(),
   ];
   int _currentSelected = 0;
