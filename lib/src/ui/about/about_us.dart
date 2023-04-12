@@ -69,12 +69,13 @@ class AboutUsScreen extends StatelessWidget {
                     ListTile(
                         leading: Icon(Icons.bug_report, color: Colors.black),
                         title: Text("Fork on Github"),
-                        onTap: () => launchURL("https://jogjaide.web.id")),
+                        onTap: () => launchURL(
+                            "https://github.com/nanangtokenku/Flutter-BLOC")),
                     ListTile(
                         leading: Icon(Icons.email, color: Colors.black),
                         title: Text("Send an Email"),
                         subtitle: Text(
-                          "nanang.direktur@gmail.com",
+                          "nanang.tokenku@gmail.com",
                           key: ValueKey(AboutUsKeys.AUTHOR_EMAIL),
                         ),
                         onTap: () => launchURL("https://jogjaide.web.id")),
@@ -108,8 +109,8 @@ class AboutUsScreen extends StatelessWidget {
                           ),
                           IconButton(
                             icon: Image.asset("assets/facebook_logo.png"),
-                            onPressed: () =>
-                                launchURL("https://jogjaide.web.id"),
+                            onPressed: () => launchURL(
+                                "https://facebook.com/nanang.rustianto"),
                           )
                         ],
                       ),
@@ -132,7 +133,7 @@ class AboutUsScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ListTile(
-                        subtitle: Text("Copyright 2020 Nanang Rustianto"
+                        subtitle: Text("Copyright 2023 Nanang Rustianto"
                             '\n\nLicensed under the Apache License, Version 2.0 (the "License") you may not use this file except in compliance with the License. You may obtain a copy of the License at'
                             "\n\n\nhttp://www.apache.org/licenses/LICENSE-2.0"
                             '\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.'),
