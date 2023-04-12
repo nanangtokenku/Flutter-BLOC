@@ -12,7 +12,7 @@ class SideDrawer extends StatelessWidget {
         children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: Text("Nanang Rustianto"),
-            accountEmail: Text("founder@jogjaide.web.id"),
+            accountEmail: Text("programmer@laksanaelang.com"),
             otherAccountsPictures: <Widget>[
               IconButton(
                   icon: Icon(
@@ -36,7 +36,7 @@ class SideDrawer extends StatelessWidget {
           ListTile(
               leading: Icon(Icons.inbox),
               title: Text(
-                "Inbox",
+                "Satuan",
                 key: ValueKey(SideDrawerKeys.INBOX),
               ),
               onTap: () {}),
@@ -44,7 +44,49 @@ class SideDrawer extends StatelessWidget {
               onTap: () {},
               leading: Icon(Icons.calendar_today),
               title: Text(
-                "Today",
+                "Kategori",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Produk",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Stok Awal",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Supplier",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Pelanggan",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Barang Masuk",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {},
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Barang Keluar",
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(

@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.list),
           ),
           BottomNavigationBarItem(
-            label: 'Seting',
+            label: 'Menu',
             icon: Icon(Icons.more_vert),
           )
         ],
