@@ -21,10 +21,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Todo List"),
+          title: Text("Home"),
         ),
         body: Center(
-          child: Text('Hello, world!'),
+          child: Text('Hello, Laksana Elang'),
         ));
   }
 }
