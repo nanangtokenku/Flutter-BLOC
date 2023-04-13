@@ -24,7 +24,7 @@ class _NodepageState extends State<Nodepage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Todo List"),
+          title: Text("List Pelanggan"),
         ),
         body: StreamBuilder(
           stream: nodebloc.allNode,

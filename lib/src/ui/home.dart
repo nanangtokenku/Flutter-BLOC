@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                           color: Colors.black54,
                           height: 2,
                         ),
-                        const SizedBox(height: 4),
+                        //const SizedBox(height: 4),
                         const Text('+62 8 123 540 1617'),
                         const Text('Makassar City'),
                         const Text('Programmer'),
