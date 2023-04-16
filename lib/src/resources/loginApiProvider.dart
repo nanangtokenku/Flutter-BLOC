@@ -9,8 +9,9 @@ class LoginApiProvider {
   Client client = Client();
   User user;
 
-  Future<User> fetchUserList(email, password) async {
+  Future<bool> fetchUserList(email, password) async {
     print("Emailnya = " + email.toString());
+    print("password = " + password.toString());
     final params = {
       'username': email.toString(),
       'password': password.toString()
@@ -23,16 +24,21 @@ class LoginApiProvider {
         },
         body: query);
 
-    print(response.statusCode);
+    //print(response.statusCode);
     if (response.statusCode == 200) {
       var jsondata = json.decode(response.body);
+      //print("Data didapatkan");
+      //print(jsondata["data"]);
+      //return (jsondata['data'] as User);
 
-      print(jsondata);
-
-      return User.fromJson(jsondata);
+      //return User.fromJson(jsondata["data"]);
+      return true;
+    } else if (response.statusCode == 406) {
+      return false;
     } else {
-      print(response.statusCode);
-      throw Exception("Gagal Mengambil Data Login");
+      //print(response.statusCode);
+      //throw Exception("Gagal Mengambil Data Login");
+      return false;
     }
   }
 }

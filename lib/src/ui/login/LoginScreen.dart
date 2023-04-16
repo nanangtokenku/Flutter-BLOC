@@ -2,7 +2,6 @@ import 'package:aztira/main.dart';
 import 'package:aztira/src/blocs/todoBloc.dart';
 import 'package:aztira/src/ui/login/validation_mixin.dart';
 import 'package:flutter/material.dart';
-
 import '../../blocs/loginBloc.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -71,12 +70,18 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
         child: MaterialButton(
           minWidth: 200.0,
           height: 42.0,
-          onPressed: () {
-            loginbloc.fetchAllUser(_textController.text, _passController.text);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
-            );
+          onPressed: () async {
+            print("button pressed");
+
+            bool resultz = await loginbloc.dologin(
+                _textController.text, _passController.text);
+            print(resultz);
+            if (resultz == true) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            }
           },
           color: Colors.lightBlueAccent,
           child: Text(

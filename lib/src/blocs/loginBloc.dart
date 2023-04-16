@@ -1,16 +1,18 @@
 import 'package:aztira/src/resources/repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../models/userModel.dart';
-
 class LoginBloc {
   final _repository = Repository();
-  final _todoFetcher = PublishSubject<User>();
+  final _todoFetcher = PublishSubject<bool>();
 
-  Observable<User> get allUser => _todoFetcher.stream;
+  Observable<bool> get allUser => _todoFetcher.stream;
   fetchAllUser(email, password) async {
-    User user = await _repository.fetchAllUser(email, password);
-    _todoFetcher.sink.add(user);
+    bool userlogin = await _repository.fetchAllLogin(email, password);
+    _todoFetcher.sink.add(userlogin);
+  }
+
+  Future<bool> dologin(email, password) async {
+    return await _repository.fetchAllLogin(email, password);
   }
 
   dispose() {
