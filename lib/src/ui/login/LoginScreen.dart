@@ -3,6 +3,9 @@ import 'package:aztira/src/blocs/todoBloc.dart';
 import 'package:aztira/src/ui/login/validation_mixin.dart';
 import 'package:flutter/material.dart';
 
+import '../../blocs/loginBloc.dart';
+import '../../blocs/nodeBloc.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -13,6 +16,11 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State<LoginScreen> with ValidationMixin {
   @override
   void initState() {
+    print("1");
+    //nodebloc.fetchAllTodo();
+    print("2");
+    loginbloc.fetchAllUser();
+    print("3");
     super.initState();
   }
 

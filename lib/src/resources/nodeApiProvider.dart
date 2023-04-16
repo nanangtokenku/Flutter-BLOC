@@ -9,6 +9,7 @@ class NodeApiProvider {
   List<Node> node;
 
   Future<List<Node>> fetchNodeList() async {
+    print("Masuk fungsi List");
     final response = await client.get(urlTodo, headers: {
       'x-api-key': xApiKey,
     });
@@ -24,4 +25,6 @@ class NodeApiProvider {
       throw Exception("Gagal Mengambil Data");
     }
   }
+
+  fetchUserList() {}
 }
