@@ -3,8 +3,6 @@ import 'package:aztira/src/models/nodeModel.dart';
 import 'package:aztira/src/resources/todoApiProvider.dart';
 import 'package:aztira/src/resources/nodeApiProvider.dart';
 import 'dart:async';
-
-import '../models/userModel.dart';
 import 'loginApiProvider.dart';
 
 class Repository {
