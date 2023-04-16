@@ -13,6 +13,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> with ValidationMixin {
+  final _textController = TextEditingController();
+  final _passController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -20,6 +23,8 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
 
   @override
   void dispose() {
+    _textController.dispose();
+    _passController.dispose();
     bloc.dispose();
     super.dispose();
   }
@@ -38,7 +43,7 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
     final email = TextFormField(
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
-      initialValue: 'nanang.programmer@gmail.com',
+      controller: _textController,
       decoration: InputDecoration(
         hintText: 'Email',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -48,8 +53,8 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
 
     final password = TextFormField(
       autofocus: false,
-      initialValue: '12345',
       obscureText: true,
+      controller: _passController,
       decoration: InputDecoration(
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -67,7 +72,7 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
-            loginbloc.fetchAllUser();
+            loginbloc.fetchAllUser(_textController.text, _passController.text);
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MyHomePage()),

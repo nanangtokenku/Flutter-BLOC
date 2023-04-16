@@ -9,8 +9,12 @@ class LoginApiProvider {
   Client client = Client();
   User user;
 
-  Future<User> fetchUserList() async {
-    final params = {'username': 'fe@fe.com', 'password': '12345678'};
+  Future<User> fetchUserList(email, password) async {
+    print("Emailnya = " + email.toString());
+    final params = {
+      'username': email.toString(),
+      'password': password.toString()
+    };
     final query = Uri(queryParameters: params).query;
     final response = await client.post(urlLogin,
         headers: {

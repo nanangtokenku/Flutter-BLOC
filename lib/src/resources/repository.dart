@@ -13,5 +13,6 @@ class Repository {
   final userApiProvider = LoginApiProvider();
   Future<List<Todo>> fetchAllTodo() => todoApiProvider.fetchTodoList();
   Future<List<Node>> fetchAllNode() => nodeApiProvider.fetchNodeList();
-  Future<User> fetchAllUser() => userApiProvider.fetchUserList();
+  Future<User> fetchAllUser(email, password) =>
+      userApiProvider.fetchUserList(email, password);
 }

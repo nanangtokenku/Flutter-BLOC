@@ -8,8 +8,8 @@ class LoginBloc {
   final _todoFetcher = PublishSubject<User>();
 
   Observable<User> get allUser => _todoFetcher.stream;
-  fetchAllUser() async {
-    User user = await _repository.fetchAllUser();
+  fetchAllUser(email, password) async {
+    User user = await _repository.fetchAllUser(email, password);
     _todoFetcher.sink.add(user);
   }
 
