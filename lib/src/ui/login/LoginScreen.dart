@@ -4,7 +4,6 @@ import 'package:aztira/src/ui/login/validation_mixin.dart';
 import 'package:flutter/material.dart';
 
 import '../../blocs/loginBloc.dart';
-import '../../blocs/nodeBloc.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -16,11 +15,6 @@ class LoginScreen extends StatefulWidget {
 class LoginScreenState extends State<LoginScreen> with ValidationMixin {
   @override
   void initState() {
-    print("1");
-    //nodebloc.fetchAllTodo();
-    print("2");
-    loginbloc.fetchAllUser();
-    print("3");
     super.initState();
   }
 
@@ -73,6 +67,7 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () {
+            loginbloc.fetchAllUser();
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => MyHomePage()),
