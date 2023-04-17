@@ -30,6 +30,13 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  bool validateEmail(String email) {
+    String emailPattern =
+        r'^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$';
+    RegExp emailRegex = new RegExp(emailPattern);
+    return emailRegex.hasMatch(email);
+  }
+
   void validateLogin() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
@@ -63,8 +70,8 @@ class _LoginPageState extends State<LoginPage> {
         if (email.isEmpty)
           return 'Please Enter email ID';
         else if (email != null)
-          //return 'Enter valid email address';
-          return null;
+          return 'Enter valid email address';
+        //return null;
         else
           return null;
       },
@@ -195,25 +202,39 @@ class _LoginPageState extends State<LoginPage> {
                             minWidth: 200.0,
                             height: 42.0,
                             onPressed: () async {
-                              bool resultz = await loginbloc.dologin(
-                                  _textController.text, _passController.text);
-                              print(resultz);
-                              if (resultz == true) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => MyHomePage()),
-                                );
-                              } else {
+                              bool validEmail =
+                                  validateEmail(_textController.text);
+                              if (!validEmail) {
                                 Fluttertoast.showToast(
                                     msg:
-                                        "Maaf Login Gagal, Mungkin Username/Password tidak tepat",
+                                        "Maaf Format Email tidak Valid. Silakan diulangi",
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.BOTTOM,
                                     timeInSecForIosWeb: 1,
                                     backgroundColor: Colors.red,
                                     textColor: Colors.white,
                                     fontSize: 16.0);
+                              } else {
+                                bool resultz = await loginbloc.dologin(
+                                    _textController.text, _passController.text);
+                                print(resultz);
+                                if (resultz == true) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyHomePage()),
+                                  );
+                                } else {
+                                  Fluttertoast.showToast(
+                                      msg:
+                                          "Maaf Login Gagal, Mungkin Username/Password tidak tepat",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.BOTTOM,
+                                      timeInSecForIosWeb: 1,
+                                      backgroundColor: Colors.red,
+                                      textColor: Colors.white,
+                                      fontSize: 16.0);
+                                }
                               }
                             },
                             child: Text(

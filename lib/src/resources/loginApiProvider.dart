@@ -1,8 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:http/http.dart' show Client;
 import 'package:aztira/src/config/konstanta.dart';
-
 import '../models/userModel.dart';
+import '../utils/AppPreferences.dart';
 
 class LoginApiProvider {
   Client client = Client();
@@ -24,7 +25,12 @@ class LoginApiProvider {
         body: query);
 
     if (response.statusCode == 200) {
-      //var jsondata = json.decode(response.body);
+      var jsondata = json.decode(response.body);
+      String token = jsondata["token"]; // The value to store in session storage
+
+      await AppPreferences.setString('token', token);
+      String name = AppPreferences.getString('token', defaultValue: 'John Doe');
+      print(name);
 
       return true;
     } else if (response.statusCode == 406) {

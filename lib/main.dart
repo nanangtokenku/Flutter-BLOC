@@ -7,12 +7,23 @@ Mobile      : 62 8 123 540 1617
 import 'package:aztira/src/ui/home.dart';
 import 'package:aztira/src/ui/produk/produk.dart';
 import 'package:aztira/src/ui/side_drawer.dart';
+import 'package:aztira/src/utils/AppPreferences.dart';
+import 'package:aztira/src/utils/AuthMiddleware.dart';
 import 'package:flutter/material.dart';
 
 import 'src/ui/node.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  // Initialize the preferences before running the app
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppPreferences.init();
+
+  //AuthService authService = AuthService();
+
+  runApp(AuthMiddleware(
+    child: MyApp(),
+    //authService: authService,
+  ));
 }
 
 class MyApp extends StatelessWidget {

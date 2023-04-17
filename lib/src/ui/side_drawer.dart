@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/AppPreferences.dart';
 import 'about/about_us.dart';
 import 'login/LoginScreen.dart';
 
@@ -20,7 +21,7 @@ class SideDrawer extends StatelessWidget {
                     color: Colors.white,
                     size: 36.0,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     Navigator.push(
                       context,
                       MaterialPageRoute<bool>(
@@ -90,7 +91,9 @@ class SideDrawer extends StatelessWidget {
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(
-            onTap: () {
+            onTap: () async {
+              await AppPreferences.setString('token', "");
+              //String name = AppPreferences.getString('token', defaultValue: 'John Doe');
               Navigator.push(
                 context,
                 MaterialPageRoute<bool>(builder: (context) => LoginPage()),
