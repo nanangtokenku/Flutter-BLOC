@@ -3,6 +3,7 @@ import 'package:aztira/src/blocs/todoBloc.dart';
 import 'package:aztira/src/ui/login/validation_mixin.dart';
 import 'package:flutter/material.dart';
 import '../../blocs/loginBloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -71,8 +72,6 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
           minWidth: 200.0,
           height: 42.0,
           onPressed: () async {
-            print("button pressed");
-
             bool resultz = await loginbloc.dologin(
                 _textController.text, _passController.text);
             print(resultz);
@@ -81,6 +80,16 @@ class LoginScreenState extends State<LoginScreen> with ValidationMixin {
                 context,
                 MaterialPageRoute(builder: (context) => MyHomePage()),
               );
+            } else {
+              Fluttertoast.showToast(
+                  msg:
+                      "Maaf Login Gagal, Mungkin Username/Password tidak tepat",
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.BOTTOM,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 16.0);
             }
           },
           color: Colors.lightBlueAccent,
