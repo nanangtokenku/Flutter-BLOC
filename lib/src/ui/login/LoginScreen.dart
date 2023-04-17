@@ -216,7 +216,6 @@ class _LoginPageState extends State<LoginPage> {
                                     fontSize: 16.0);
                               }
                             },
-                            color: Colors.lightBlueAccent,
                             child: Text(
                               'Log In',
                               style: TextStyle(color: Colors.white),
@@ -231,68 +230,8 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 16,
                     ),
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.indigo.shade50,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            // Image.asset(
-                            //   "assets/images/facebook.png",
-                            //   height: 18,
-                            //   width: 18,
-                            // ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Connect with Facebook",
-                              style: TextStyle(
-                                  color: Colors.indigo,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     SizedBox(
                       height: 16,
-                    ),
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      child: MaterialButton(
-                        onPressed: () {},
-                        color: Colors.indigo.shade50,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            // Image.asset(
-                            //   "assets/images/facebook.png",
-                            //   height: 18,
-                            //   width: 18,
-                            // ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Connect with Facebook",
-                              style: TextStyle(
-                                  color: Colors.indigo,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ],
                 ),
@@ -302,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Don't have an account?",
+                        "Belum Punya Akun?",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -316,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
                           }));
                         },
                         child: Text(
-                          "Sign up",
+                          "Daftar",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.red),
                         ),
