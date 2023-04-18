@@ -210,7 +210,7 @@ class _LoginPageState extends State<LoginPage> {
                                         "Maaf Format Email tidak Valid. Silakan diulangi",
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.BOTTOM,
-                                    timeInSecForIosWeb: 1,
+                                    timeInSecForIosWeb: 2,
                                     backgroundColor: Colors.red,
                                     textColor: Colors.white,
                                     fontSize: 16.0);
@@ -230,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                                           "Maaf Login Gagal, Mungkin Username/Password tidak tepat",
                                       toastLength: Toast.LENGTH_SHORT,
                                       gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
+                                      timeInSecForIosWeb: 2,
                                       backgroundColor: Colors.red,
                                       textColor: Colors.white,
                                       fontSize: 16.0);
