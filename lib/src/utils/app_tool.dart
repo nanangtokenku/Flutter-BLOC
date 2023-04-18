@@ -13,8 +13,9 @@ showSnackbar(GlobalKey<ScaffoldState> scaffoldState, String message,
 
 launchURL(String url) async {
   if (url.isEmpty) return;
+  // ignore: deprecated_member_use
   if (await canLaunch(url)) {
-    await launch(url);
+    await launchUrl(url as Uri);
   } else {
     throw 'Could not launch $url';
   }

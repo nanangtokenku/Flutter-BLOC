@@ -33,8 +33,7 @@ class _HomeState extends State<Home> {
                   children: [
                     const CircleAvatar(
                       radius: 50, //we give the image a radius of 50
-                      backgroundImage: NetworkImage(
-                          'https://webstockreview.net/images/male-clipart-professional-man-3.jpg'),
+                      backgroundImage: AssetImage('assets/profile_pic.jpg'),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
