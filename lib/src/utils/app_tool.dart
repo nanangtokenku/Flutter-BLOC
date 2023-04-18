@@ -26,14 +26,17 @@ launchURL(String url) async {
 }
 
 handleLoginSession(BuildContext context) async {
-  String adaToken = AppPreferences.getString('token', defaultValue: 'John Doe');
-  if (adaToken != "") {
-  } else {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
-    );
-  }
+  Future.delayed(Duration(seconds: 2), () {
+    String adaToken =
+        AppPreferences.getString('token', defaultValue: 'John Doe');
+    if (adaToken != "") {
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    }
+  });
 }
 
 class MessageInCenterWidget extends StatelessWidget {
