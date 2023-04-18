@@ -2,6 +2,8 @@ import 'package:aztira/src/ui/produk/produk1.dart';
 import 'package:aztira/src/ui/produk/produk2.dart';
 import 'package:flutter/material.dart';
 
+import '../../utils/app_tool.dart';
+
 class Produk extends StatefulWidget {
   @override
   _Produk createState() => _Produk();
@@ -13,6 +15,7 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
+    handleLoginSession(context);
     controller = new TabController(vsync: this, length: 2);
     //tambahkan SingleTickerProviderStateMikin pada class _HomeState
     super.initState();

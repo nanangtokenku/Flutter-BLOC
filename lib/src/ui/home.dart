@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/app_tool.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -8,6 +10,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   void initState() {
+    handleLoginSession(context);
     super.initState();
   }
 

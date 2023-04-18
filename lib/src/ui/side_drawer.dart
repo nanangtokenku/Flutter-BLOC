@@ -5,6 +5,11 @@ import 'about/about_us.dart';
 import 'login/LoginScreen.dart';
 
 class SideDrawer extends StatelessWidget {
+  handleLoginSession(context) {
+    // TODO: implement handleLoginSession
+    throw UnimplementedError();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
