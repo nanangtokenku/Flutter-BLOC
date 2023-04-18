@@ -1,6 +1,9 @@
 import 'package:aztira/src/models/nodeModel.dart';
+import 'package:aztira/src/ui/login/LoginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:aztira/src/blocs/nodeBloc.dart';
+import '../utils/app_tool.dart';
+import '../utils/AppPreferences.dart';
 
 class Nodepage extends StatefulWidget {
   @override
@@ -10,6 +13,7 @@ class Nodepage extends StatefulWidget {
 class _NodepageState extends State<Nodepage> {
   @override
   void initState() {
+    handleLoginSession(context);
     nodebloc.fetchAllTodo();
     super.initState();
   }
@@ -19,6 +23,18 @@ class _NodepageState extends State<Nodepage> {
     //bloc.dispose();
     super.dispose();
   }
+
+  // void _handleLoginSession() async {
+  //   String adaToken =
+  //       AppPreferences.getString('token', defaultValue: 'John Doe');
+  //   if (adaToken != "") {
+  //   } else {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => LoginPage()),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

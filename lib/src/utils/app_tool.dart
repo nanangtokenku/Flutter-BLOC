@@ -1,6 +1,10 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../ui/login/LoginScreen.dart';
+import 'AppPreferences.dart';
 import 'keys.dart';
 
 showSnackbar(GlobalKey<ScaffoldState> scaffoldState, String message,
@@ -18,6 +22,17 @@ launchURL(String url) async {
     await launchUrl(url as Uri);
   } else {
     throw 'Could not launch $url';
+  }
+}
+
+handleLoginSession(BuildContext context) async {
+  String adaToken = AppPreferences.getString('token', defaultValue: 'John Doe');
+  if (adaToken != "") {
+  } else {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
   }
 }
 

@@ -92,8 +92,15 @@ class SideDrawer extends StatelessWidget {
               )),
           ListTile(
             onTap: () async {
+              String name =
+                  AppPreferences.getString('token', defaultValue: 'John Doe');
+              print('cetak token sebelum is = ');
+              print(name);
               await AppPreferences.setString('token', "");
-              //String name = AppPreferences.getString('token', defaultValue: 'John Doe');
+              print('cetak token sesudah is = ');
+              String name2 =
+                  AppPreferences.getString('token', defaultValue: 'John Doe');
+              print(name2);
               Navigator.push(
                 context,
                 MaterialPageRoute<bool>(builder: (context) => LoginPage()),
