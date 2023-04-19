@@ -64,7 +64,7 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
           ? Center(child: CircularProgressIndicator())
           : GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
+                crossAxisCount: 3,
                 childAspectRatio: 3 / 4,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
@@ -78,7 +78,7 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
                     children: [
                       AspectRatio(
                         aspectRatio: 1,
-                        child: Image.network(
+                        child: Image.asset(
                           //item['url'],
                           ('assets/profile_pic.jpg'),
                           fit: BoxFit.fitHeight,
