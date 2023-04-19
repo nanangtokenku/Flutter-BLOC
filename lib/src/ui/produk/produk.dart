@@ -64,7 +64,7 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
           ? Center(child: CircularProgressIndicator())
           : GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 4,
                 childAspectRatio: 3 / 4,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
@@ -81,27 +81,29 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
                         child: Image.network(
                           //item['url'],
                           ('assets/profile_pic.jpg'),
-                          fit: BoxFit.fitWidth,
+                          fit: BoxFit.fitHeight,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          item['title'],
+                          //item['title'],
+                          "Nanang Aja",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text(
-                          item['albumId'].toString(),
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      //   child: Text(
+                      //     item['albumId'].toString(),
+                      //     style: TextStyle(
+                      //       color: Colors.grey[600],
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 );
