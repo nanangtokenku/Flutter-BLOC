@@ -24,18 +24,6 @@ class _NodepageState extends State<Nodepage> {
     super.dispose();
   }
 
-  // void _handleLoginSession() async {
-  //   String adaToken =
-  //       AppPreferences.getString('token', defaultValue: 'John Doe');
-  //   if (adaToken != "") {
-  //   } else {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => LoginPage()),
-  //     );
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,12 +49,24 @@ class _NodepageState extends State<Nodepage> {
     return ListView.builder(
       itemCount: snapshot.data.length,
       itemBuilder: (BuildContext context, int index) {
+        List<String> checkedItems = [];
+
         return CheckboxListTile(
           value: snapshot.data[index].done == 'true' ? true : false,
           title: Text(snapshot.data[index].name),
           subtitle: Text(
               snapshot.data[index].id != null ? snapshot.data[index].id : ''),
-          onChanged: (bool isChecked) {},
+          onChanged: (newvalue) {
+            setState(() {
+              if (newvalue) {
+                checkedItems.add(snapshot.data[index].done);
+              } else {
+                checkedItems.remove(snapshot.data[index].done);
+              }
+              print("Checked items: ${checkedItems.join(', ')}");
+            });
+            //});
+          },
         );
       },
     );
