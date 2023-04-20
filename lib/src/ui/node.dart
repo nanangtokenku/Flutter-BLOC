@@ -1,9 +1,7 @@
 import 'package:aztira/src/models/nodeModel.dart';
-import 'package:aztira/src/ui/login/LoginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:aztira/src/blocs/nodeBloc.dart';
 import '../utils/app_tool.dart';
-import '../utils/AppPreferences.dart';
 
 class Nodepage extends StatefulWidget {
   @override
