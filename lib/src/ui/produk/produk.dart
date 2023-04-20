@@ -50,7 +50,11 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
           title: Text('Katalog'), //bottom
           bottom: new TabBar(
             controller: controller,
+            unselectedLabelColor:
+                Color.alphaBlend(Colors.yellow, Colors.yellow),
             tabs: <Widget>[
+              //Color: Colors.yellow,
+              //BackgroundColor: Colors.yellow, // set background color
               new Tab(
                 text: "Produk",
                 icon: new Icon(Icons.add_photo_alternate_outlined),
