@@ -23,7 +23,7 @@ launchURL(String url) async {
 }
 
 handleLoginSession(BuildContext context) async {
-  Future.delayed(Duration(seconds: 2), () {
+  Future.delayed(Duration(seconds: 1), () {
     String adaToken =
         AppPreferences.getString('token', defaultValue: 'John Doe');
     if (adaToken != "") {

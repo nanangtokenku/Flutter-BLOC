@@ -18,8 +18,8 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
   List<dynamic> _data = [];
 
   Future<void> fetchData() async {
-    final response = await http
-        .get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
+    final response =
+        await http.get(Uri.parse('https://api.jogjaide.web.id/web/card'));
     final List<dynamic> data = json.decode(response.body);
     setState(() {
       _data = data;
@@ -87,8 +87,8 @@ class _Produk extends State<Produk> with SingleTickerProviderStateMixin {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          //item['title'],
-                          "Nanang Aja",
+                          item['name'],
+                          //"Nanang Aja",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
