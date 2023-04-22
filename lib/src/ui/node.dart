@@ -22,6 +22,27 @@ class _NodepageState extends State<Nodepage> {
     super.dispose();
   }
 
+// Define a function to show the popup
+  void showPopup(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Popup Title'),
+          content: Text('This is the popup content.'),
+          actions: [
+            MaterialButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +86,12 @@ class _NodepageState extends State<Nodepage> {
             });
             //});
           },
+          secondary: IconButton(
+            icon: Icon(Icons.info_outline),
+            onPressed: () {
+              showPopup(context);
+            },
+          ),
         );
       },
     );
