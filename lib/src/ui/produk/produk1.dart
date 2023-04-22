@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../main.dart';
+
 class Produk1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,10 @@ class Produk1 extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             // Navigate back to first route when tapped.
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyHomePage()),
+            );
           },
           child: Text('Go back!'),
         ),
