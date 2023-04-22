@@ -28,8 +28,8 @@ class _NodepageState extends State<Nodepage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Popup Title'),
-          content: Text('This is the popup content.'),
+          title: Text('Popup Pelanggan'),
+          content: Text('Selamat Kepada Pelanggan.'),
           actions: [
             MaterialButton(
               child: Text('OK'),
