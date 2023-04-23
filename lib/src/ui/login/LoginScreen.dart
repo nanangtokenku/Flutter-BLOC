@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50,
                     ),
                     Text(
-                      "Welcome,",
+                      "Welcome to Elang",
                       style:
                           TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
