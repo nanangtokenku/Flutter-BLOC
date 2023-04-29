@@ -6,6 +6,7 @@ Mobile      : 62 8 123 540 1617
 */
 import 'package:aztira/src/ui/home.dart';
 import 'package:aztira/src/ui/produk/produk.dart';
+import 'package:aztira/src/ui/satuan/satuan.dart';
 import 'package:aztira/src/ui/side_drawer.dart';
 import 'package:aztira/src/utils/AppPreferences.dart';
 import 'package:aztira/src/utils/AuthMiddleware.dart';
@@ -76,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Home(),
     Nodepage(),
     Produk(),
+    Satuanpage(),
   ];
   int _currentSelected = 0;
   GlobalKey<ScaffoldState> _drawerKey = GlobalKey();

@@ -1,3 +1,4 @@
+import 'package:aztira/src/ui/satuan/satuan.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/AppPreferences.dart';
@@ -35,12 +36,18 @@ class SideDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-              leading: Icon(Icons.inbox),
-              title: Text(
-                "Satuan",
-                key: ValueKey(SideDrawerKeys.INBOX),
-              ),
-              onTap: () {}),
+            leading: Icon(Icons.inbox),
+            title: Text(
+              "Satuan",
+              key: ValueKey(SideDrawerKeys.INBOX),
+            ),
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute<bool>(builder: (context) => Satuanpage()),
+              );
+            },
+          ),
           ListTile(
               onTap: () {},
               leading: Icon(Icons.calendar_today),
