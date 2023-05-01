@@ -1,4 +1,5 @@
 import 'package:aztira/src/ui/satuan/satuan.dart';
+import 'package:aztira/src/ui/stok/laporan.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/AppPreferences.dart';
@@ -63,10 +64,15 @@ class SideDrawer extends StatelessWidget {
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<bool>(builder: (context) => Laporan()),
+                );
+              },
               leading: Icon(Icons.calendar_today),
               title: Text(
-                "Stok Awal",
+                "Laporan Stok",
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(
