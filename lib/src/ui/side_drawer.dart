@@ -64,18 +64,6 @@ class SideDrawer extends StatelessWidget {
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<bool>(builder: (context) => Laporan()),
-                );
-              },
-              leading: Icon(Icons.calendar_today),
-              title: Text(
-                "Laporan Stok",
-                key: ValueKey(SideDrawerKeys.TODAY),
-              )),
-          ListTile(
               onTap: () {},
               leading: Icon(Icons.calendar_today),
               title: Text(
@@ -101,6 +89,18 @@ class SideDrawer extends StatelessWidget {
               leading: Icon(Icons.calendar_today),
               title: Text(
                 "Barang Keluar",
+                key: ValueKey(SideDrawerKeys.TODAY),
+              )),
+          ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<bool>(builder: (context) => Laporan()),
+                );
+              },
+              leading: Icon(Icons.calendar_today),
+              title: Text(
+                "Laporan Stok",
                 key: ValueKey(SideDrawerKeys.TODAY),
               )),
           ListTile(

@@ -13,8 +13,8 @@ class _Laporan extends State<Laporan> {
   List<dynamic> _data = [];
 
   Future<void> fetchData() async {
-    final response =
-        await http.get(Uri.parse('https://stok.laksanaelang.net/web/stok'));
+    final response = await http.get(Uri.parse(
+        'https://stok.laksanaelang.net/web/stok?tanggalDari=2023-04-26&tanggalSampai=2023-05-31'));
     final List<dynamic> data = json.decode(response.body);
     setState(() {
       _data = data;
