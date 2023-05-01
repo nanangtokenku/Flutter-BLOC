@@ -5,140 +5,84 @@ import 'package:flutter/material.dart';
 
 class Laporan extends StatefulWidget {
   @override
-  _Laporan createState() => _Laporan();
+  _MyListViewState createState() => _MyListViewState();
 }
 
-// ignore: must_be_immutable
-class _Laporan extends State<Laporan> {
-  List<dynamic> _data = [];
+class _MyListViewState extends State<Laporan> {
+  List _dataList = [];
 
-  Future<void> fetchData() async {
-    final response = await http.get(Uri.parse(
-        'https://stok.laksanaelang.net/web/stok?tanggalDari=2023-04-26&tanggalSampai=2023-05-31'));
-    final List<dynamic> data = json.decode(response.body);
+  @override
+  void initState() {
+    super.initState();
+    _fetchDataFromAPI();
+  }
+
+  Future<void> _fetchDataFromAPI() async {
+    String url =
+        "https://stok.laksanaelang.net/web/stok?tanggalDari=2023-04-26&tanggalSampai=2023-05-31";
+    var response = await http.get(Uri.parse(url));
+    var jsonData = jsonDecode(response.body);
+
     setState(() {
-      _data = data;
+      _dataList = jsonData;
     });
   }
 
   @override
-  void initState() {
-    fetchData();
-    //tambahkan SingleTickerProviderStateMikin pada class _HomeState
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Laporan Stok"),
+        title: Text("My List View"),
       ),
-      body: _data.isEmpty
+      body: _dataList.length == 0
           ? Center(child: CircularProgressIndicator())
-          : GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 6 / 10,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-              ),
-              itemCount: _data.length,
-              itemBuilder: (context, index) {
-                final item = _data[index];
-                return Card(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+          : ListView.builder(
+              itemCount: _dataList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CheckboxListTile(
+                  value:
+                      _dataList[index]["namaproduk"] == 'true' ? true : false,
+                  title: Text(_dataList[index]["namaproduk"]),
+                  subtitle: Column(
                     children: [
-                      AspectRatio(
-                        aspectRatio: 1,
-                        child: Image.asset(
-                          //item['url'],
-                          ('assets/produk.jpeg'),
-                          fit: BoxFit.fitHeight,
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(_dataList[index]["kode"] != null
+                                  ? _dataList[index]["kode"]
+                                  : ''),
+                            ],
+                          ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Nama : " + item['namaproduk'],
-                                  //"Nanang Aja",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Awal : " + item['awal'].toString(),
-                                  //"Nanang Aja",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Masuk : " + item['stokmasuk'].toString(),
-                                  //"Nanang Aja",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Keluar : " + item['stokkeluar'].toString(),
-                                  //"Nanang Aja",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Saldo : " + item['sisa'].toString(),
-                                  //"Nanang Aja",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text("Awal : " +
+                                  _dataList[index]["awal"].toString() +
+                                  " Masuk : " +
+                                  _dataList[index]["stokmasuk"].toString() +
+                                  " Keluar : " +
+                                  _dataList[index]["stokkeluar"].toString() +
+                                  " Saldo : " +
+                                  _dataList[index]["sisa"].toString()),
+                            ],
+                          ),
+                        ],
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      //   child: Text(
-                      //     item['albumId'].toString(),
-                      //     style: TextStyle(
-                      //       color: Colors.grey[600],
-                      //     ),
-                      //   ),
-                      // ),
                     ],
+                  ),
+                  onChanged: (newvalue) {
+                    setState(() {});
+                    //});
+                  },
+                  secondary: IconButton(
+                    icon: Icon(Icons.info_outline),
+                    onPressed: () {
+                      //showPopup(context);
+                    },
                   ),
                 );
               },
