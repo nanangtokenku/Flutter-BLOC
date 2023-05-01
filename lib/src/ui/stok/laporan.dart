@@ -36,7 +36,7 @@ class _Laporan extends State<Laporan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Kategori"),
+        title: Text("Laporan Stok"),
       ),
       body: _data.isEmpty
           ? Center(child: CircularProgressIndicator())
