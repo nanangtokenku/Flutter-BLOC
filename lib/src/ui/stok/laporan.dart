@@ -32,60 +32,30 @@ class _MyListViewState extends State<Laporan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My List View"),
+        title: Text('Laporan Stok'),
       ),
-      body: _dataList.length == 0
+      body: _dataList.isEmpty
           ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              itemCount: _dataList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return CheckboxListTile(
-                  value:
-                      _dataList[index]["namaproduk"] == 'true' ? true : false,
-                  title: Text(_dataList[index]["namaproduk"]),
-                  subtitle: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Text(_dataList[index]["kode"] != null
-                                  ? _dataList[index]["kode"]
-                                  : ''),
-                            ],
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Text("Awal : " +
-                                  _dataList[index]["awal"].toString() +
-                                  " Masuk : " +
-                                  _dataList[index]["stokmasuk"].toString() +
-                                  " Keluar : " +
-                                  _dataList[index]["stokkeluar"].toString() +
-                                  " Saldo : " +
-                                  _dataList[index]["sisa"].toString()),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  onChanged: (newvalue) {
-                    setState(() {});
-                    //});
-                  },
-                  secondary: IconButton(
-                    icon: Icon(Icons.info_outline),
-                    onPressed: () {
-                      //showPopup(context);
-                    },
-                  ),
-                );
-              },
+          : SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(label: Text('Produk')),
+                  DataColumn(label: Text('Awal')),
+                  DataColumn(label: Text('Masuk')),
+                  DataColumn(label: Text('Keluar')),
+                  DataColumn(label: Text('Saldo')),
+                ],
+                rows: _dataList
+                    .map((data) => DataRow(cells: [
+                          DataCell(Text(data['namaproduk'].toString())),
+                          DataCell(Text(data['awal'].toString())),
+                          DataCell(Text(data['stokmasuk'].toString())),
+                          DataCell(Text(data['stokkeluar'].toString())),
+                          DataCell(Text(data['sisa'].toString())),
+                        ]))
+                    .toList(),
+              ),
             ),
     );
   }
